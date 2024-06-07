@@ -18,6 +18,7 @@ public class LoginStepDefintion {
 		loginPage = new LoginPage();
 	}
 	
+	
 	@Given("Je visite le site nopcommerce")
 	public void jeVisiteLeSiteNopcommerce() {
 		Setup.getDriver().get("http://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F");
