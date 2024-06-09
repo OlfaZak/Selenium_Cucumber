@@ -3,6 +3,8 @@ package com.e2eTests.automation.step_definitions;
 import org.junit.Assert;
 
 import com.e2eTests.automation.page_object.LoginPage;
+import com.e2eTests.automation.utils.ConfigFileReader;
+import com.e2eTests.automation.utils.SeleniumUtils;
 import com.e2eTests.automation.utils.Setup;
 
 import io.cucumber.java.en.Given;
@@ -12,17 +14,20 @@ import io.cucumber.java.en.When;
 public class LoginStepDefintion {
 	
 	public LoginPage loginPage ;
-	
+	public ConfigFileReader configFileReader ;
+	public SeleniumUtils seleniumUtils ;
 	public LoginStepDefintion() {
+		loginPage =new LoginPage() ;
+		configFileReader = new ConfigFileReader();
+		seleniumUtils = new SeleniumUtils();
 		
-		loginPage = new LoginPage();
+		
 	}
-	
 	
 	@Given("Je visite le site nopcommerce")
 	public void jeVisiteLeSiteNopcommerce() {
-		Setup.getDriver().get("http://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F");
-	   
+    //Setup.getDriver().get(configFileReader.getProperties("home.login"));
+	seleniumUtils.get(configFileReader.getProperties("home.url"));
 	}
 	@When("Je saisis l'adresse mail {string}")
 	public void jeSaisisLAdresseMail(String email) {

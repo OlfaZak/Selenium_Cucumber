@@ -9,7 +9,7 @@ Feature: Je souhaite verifier la page de connexion
     When Je saisis l'adresse mail "admin@yourstore.com"
     And Je saisis le mot de passe "admin"
     And Je clique sur le bouton login 
-    Then Je me redirige vers la page home
+    Then Je me redirige vers la page home "Dashbord"
     
 
   
