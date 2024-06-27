@@ -6,6 +6,7 @@ import org.openqa.selenium.TakesScreenshot;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 
+
 public class TearDown {
 	
 	/**
@@ -22,7 +23,8 @@ public class TearDown {
 			scenario.attach(screenshot, "image/png", "screenshot");
 		}
 		
-		Setup.getDriver().quit();
+//		Setup.getDriver().quit();
+		Setup.getLogger().info("Scenario: " +scenario.getName()+ "finished.Status" + scenario.getStatus());
 		
 	}
 

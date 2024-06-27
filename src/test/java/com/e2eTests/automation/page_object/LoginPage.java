@@ -19,6 +19,7 @@ public class LoginPage extends BasePage {
 
 	@FindBy(how = How.XPATH, using = "//button[@type='submit']")
 	private static WebElement btnLogin;
+	
 	@FindBy(how = How.TAG_NAME, using = "h1")
 	private static WebElement text;
 	
@@ -41,6 +42,7 @@ public class LoginPage extends BasePage {
 	public static WebElement getTitlePage() {
 		return text ;
 	}
+	
 	
 	
 
