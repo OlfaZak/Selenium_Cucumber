@@ -2,8 +2,10 @@ package com.e2eTests.automation.step_definitions;
 
 import com.e2eTests.automation.page_object.LoginPage;
 import com.e2eTests.automation.page_object.ProductsPage;
+import com.e2eTests.automation.utils.SelectFromListUtils;
 import com.e2eTests.automation.utils.SeleniumUtils;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -11,13 +13,15 @@ public class ProductStepDefinitions {
 
 	public LoginPage loginPage;
 	public SeleniumUtils seleniumUtils;
-	public ProductsPage dashbordPage;
+	public ProductsPage productsPage;
+	public SelectFromListUtils selectFromListUtils;
 
 	public ProductStepDefinitions() {
 
 		loginPage = new LoginPage();
 		seleniumUtils = new SeleniumUtils();
-		dashbordPage = new ProductsPage();
+		productsPage = new ProductsPage();
+		selectFromListUtils =new SelectFromListUtils();
 	}
 
 	@When("Je clique sur le bouton catalog")
@@ -32,19 +36,28 @@ public class ProductStepDefinitions {
 	public void jeCliqueSurLeBoutonProducts() throws InterruptedException {
 		seleniumUtils.click(ProductsPage.getBtnProduct());
 	}
-
+	
 	@When("Je saisis le nom du produit {string}")
-	public void jeSaisisLeNomDuProduit(String string) {
+	public void jeSaisisLeNomDuProduit(String searchProductName)throws InterruptedException {
+		ProductsPage.getsearchProduct().sendKeys(searchProductName);
+
+	}
+	
+	@And("Je saisis la categorie") 
+	public void jeSaisisLaCategorie()throws InterruptedException {
+	  
+		selectFromListUtils.selectDropDownListByIndex(ProductsPage.getDropdownElement(),3);
 
 	}
 
-	@When("Je saisis la categorie")
-	public void jeSaisisLaCategorie() {
 
-	}
+
+	
 
 	@When("Je clique sur le bouton search")
 	public void jeCliqueSurLeBoutonSearch() {
+		
+		seleniumUtils.click(ProductsPage.getbtnsearchproducts());
 
 	}
 	
@@ -58,12 +71,12 @@ public class ProductStepDefinitions {
 	}
 
 
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+

@@ -11,10 +11,10 @@ Feature: Je souhaire rechercher et ajouter un produit
 
   @rechercheProduit
   Scenario: Recherche de Produit
-    And Je saisis le nom du produit "Build your own computer"
+    When Je saisis le nom du produit "Apple MacBook Pro 13-inch"
     And Je saisis la categorie
     And Je clique sur le bouton search
-    Then Je verifie le produit "Build your own computer"
+    Then Je verifie le produit "Apple MacBook Pro 13-inch"
 
   @ajoutProduct
   Scenario: Ajout

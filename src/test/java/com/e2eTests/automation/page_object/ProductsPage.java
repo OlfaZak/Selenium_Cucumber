@@ -19,6 +19,15 @@ public class ProductsPage extends BasePage {
 	
 	@FindBy(how = How.XPATH , using = "//p[normalize-space()='Products']")
 	private static WebElement btnProduct ;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\"SearchProductName\"]")
+	private static WebElement searchProductName;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\"SearchCategoryId\"]")
+	private static WebElement dropdownElement;
+	
+	@FindBy(how = How.ID , using = "search-products")
+	private static WebElement btnsearchproducts ;
 
 	public ProductsPage() {
 
@@ -38,4 +47,14 @@ public class ProductsPage extends BasePage {
 		return btnProduct;
 	}
 	
+	public static WebElement getsearchProduct() {
+		return searchProductName;
+	}
+
+	public static WebElement getDropdownElement() {
+		return dropdownElement;
+	}
+	public static WebElement getbtnsearchproducts() {
+		return btnsearchproducts;
+	}
 }
