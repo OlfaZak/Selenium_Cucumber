@@ -28,6 +28,22 @@ public class ProductsPage extends BasePage {
 	
 	@FindBy(how = How.ID , using = "search-products")
 	private static WebElement btnsearchproducts ;
+	
+	@FindBy(how = How.XPATH , using = "/html/body/div[3]/div[1]/form[1]/div/div/a")
+	private static WebElement btnAddProduct ;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\"product-form\"]/div[1]/h1")
+	private static WebElement text;
+	
+	@FindBy(how = How.XPATH, using = "/html/body/div[3]/div[1]/form/section/div/div/nop-cards/nop-card[1]/div/div[2]/div[1]/div[1]/div[1]/div[2]/div/input")
+	private static WebElement Name;
+	
+	@FindBy(how = How.XPATH, using = "/html/body/div[3]/div[1]/form/section/div/div/nop-cards/nop-card[2]/div/div[2]/div[14]/div[2]/div[2]/select")
+	private static WebElement dropdownCat;
+	@FindBy(how = How.XPATH , using = "//*[@id=\"product-form\"]/div[1]/div/button[1]/i")
+	private static WebElement btnSave ;
+	
+	
 
 	public ProductsPage() {
 
@@ -51,10 +67,33 @@ public class ProductsPage extends BasePage {
 		return searchProductName;
 	}
 
-	public static WebElement getDropdownElement() {
-		return dropdownElement;
+	public static WebElement getDropdownCat() {
+		return dropdownCat;
 	}
 	public static WebElement getbtnsearchproducts() {
 		return btnsearchproducts;
 	}
+	
+	public static WebElement getBtnAddProduct() {
+		return btnAddProduct;
+	}
+	
+	public static WebElement getTitlePage() {
+		return text ;
+	}
+	
+	public static WebElement getProductName() {
+		return Name ;
+	}
+	public static WebElement getDropdownElement() {
+		return dropdownElement;
+	}
+	
+	public static WebElement getBtnSave() {
+		return btnSave;
+	}
+	
+	
+	
+	
 }

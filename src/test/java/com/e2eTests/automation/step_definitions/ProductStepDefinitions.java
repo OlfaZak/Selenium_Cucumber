@@ -1,5 +1,7 @@
 package com.e2eTests.automation.step_definitions;
 
+
+
 import com.e2eTests.automation.page_object.LoginPage;
 import com.e2eTests.automation.page_object.ProductsPage;
 import com.e2eTests.automation.utils.SelectFromListUtils;
@@ -43,15 +45,13 @@ public class ProductStepDefinitions {
 
 	}
 	
-	@And("Je saisis la categorie") 
+	@And("Je selectionne la categorie") 
 	public void jeSaisisLaCategorie()throws InterruptedException {
 	  
 		selectFromListUtils.selectDropDownListByIndex(ProductsPage.getDropdownElement(),3);
 
 	}
-
-
-
+	
 	
 
 	@When("Je clique sur le bouton search")
@@ -66,9 +66,41 @@ public class ProductStepDefinitions {
 	}
 	
 	/*Add Product*/
-	@When("Je clique sur le bouton add new")
+	
+	@When("Je clique sur le bouton Add new")
 	public void jeCliqueSurLeBoutonAddNew() {
+		
+		seleniumUtils.click(ProductsPage.getBtnAddProduct());
+	    
+	}	
+	
+	@When("Je saisie le nom du produit {string}")
+	public void jeSaisieLeNomDuProduit(String Name) {
+		ProductsPage.getProductName().clear();
+		ProductsPage.getProductName().sendKeys(Name);
 	}
+	
+	
+
+	@When("je selectionne un tax categorie")
+	public void jeSelectionneUnTaxCategorie() {
+		selectFromListUtils.selectDropDownListByIndex(ProductsPage.getDropdownCat(),3);
+	   
+	}
+
+
+
+	@When("Je clique sur le bouton Save")
+	public void jeCliqueSurLeBoutonSave() {
+		
+		seleniumUtils.click(ProductsPage.getBtnSave());
+		
+	    
+	}
+
+
+
+	
 
 
 }

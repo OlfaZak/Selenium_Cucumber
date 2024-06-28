@@ -12,10 +12,16 @@ Feature: Je souhaire rechercher et ajouter un produit
   @rechercheProduit
   Scenario: Recherche de Produit
     When Je saisis le nom du produit "Apple MacBook Pro 13-inch"
-    And Je saisis la categorie
+    And Je selectionne la categorie
     And Je clique sur le bouton search
-    Then Je verifie le produit "Apple MacBook Pro 13-inch"
 
-  @ajoutProduct
-  Scenario: Ajout
-    And Je clique sur le bouton add new
+
+  @ajoutProduit
+  Scenario: Ajout d'un produit
+    When Je clique sur le bouton Add new
+    And Je saisie le nom du produit "MacOl"
+    And je selectionne un tax categorie
+    And Je clique sur le bouton Save
+    Then Je verifie le produit "MacOl"
+    
+    
