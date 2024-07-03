@@ -2,6 +2,8 @@ package com.e2eTests.automation.step_definitions;
 
 
 
+import org.openqa.selenium.Keys;
+
 import com.e2eTests.automation.page_object.LoginPage;
 import com.e2eTests.automation.page_object.ProductsPage;
 import com.e2eTests.automation.utils.SelectFromListUtils;
@@ -89,6 +91,36 @@ public class ProductStepDefinitions {
 	}
 
 
+	
+
+	@When("Je selectionne un bouton radio {string}")
+	public void jeSelectionneUnBoutonRadio(String radioButton) {
+//		seleniumUtils.click(ProductsPage.getradioButton());
+		if (!ProductsPage.getradioButton().isSelected()) {
+			ProductsPage.getradioButton().click();
+        }
+	}
+	
+	
+	@When("je selectionne une date {string}")
+	public void jeSelectionneUneDate(String AvailableStartDateTimeUtc) {
+		ProductsPage.getAvailableStartDateTimeUtc().click();
+		ProductsPage.getAvailableStartDateTimeUtc().clear();
+		ProductsPage.getAvailableStartDateTimeUtc().sendKeys(AvailableStartDateTimeUtc);
+		ProductsPage.getAvailableStartDateTimeUtc().sendKeys(Keys.RETURN);
+	}
+
+
+
+	@When("je selectionne une date de fin  {string}")
+	public void jeSelectionneUneDateDeFin(String AvailableEndDateTimeUtc) {
+		ProductsPage.getAvailableEndDateTimeUtc().click();
+		ProductsPage.getAvailableEndDateTimeUtc().clear();
+		ProductsPage.getAvailableEndDateTimeUtc().sendKeys(AvailableEndDateTimeUtc);
+		ProductsPage.getAvailableEndDateTimeUtc().sendKeys(Keys.RETURN);
+	}
+
+
 
 	@When("Je clique sur le bouton Save")
 	public void jeCliqueSurLeBoutonSave() {
@@ -98,9 +130,6 @@ public class ProductStepDefinitions {
 	    
 	}
 
-
-
-	
 
 
 }

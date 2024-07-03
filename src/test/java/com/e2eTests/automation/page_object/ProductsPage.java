@@ -14,7 +14,7 @@ public class ProductsPage extends BasePage {
 	@FindBy(how = How.ID, using = "nopSideBarPusher")
 	private static WebElement btnMenu;
 	
-	@FindBy(how = How.XPATH, using = "/html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[2]/a/p")
+	@FindBy(how = How.XPATH, using = "/html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[2]/a")
 	private static WebElement btnCatalog;
 	
 	@FindBy(how = How.XPATH , using = "//p[normalize-space()='Products']")
@@ -38,12 +38,21 @@ public class ProductsPage extends BasePage {
 	@FindBy(how = How.XPATH, using = "/html/body/div[3]/div[1]/form/section/div/div/nop-cards/nop-card[1]/div/div[2]/div[1]/div[1]/div[1]/div[2]/div/input")
 	private static WebElement Name;
 	
+	@FindBy(how = How.XPATH , using = "//*[@id=\"Published\"]")
+	private static WebElement radioButton  ;
+	
+	@FindBy(how = How.ID , using = "AvailableStartDateTimeUtc")
+	private static WebElement AvailableStartDateTimeUtc  ;
+	
+	@FindBy(how = How.ID , using = "AvailableEndDateTimeUtc")
+	private static WebElement AvailableEndDateTimeUtc  ;
+	
 	@FindBy(how = How.XPATH, using = "/html/body/div[3]/div[1]/form/section/div/div/nop-cards/nop-card[2]/div/div[2]/div[14]/div[2]/div[2]/select")
 	private static WebElement dropdownCat;
+	
 	@FindBy(how = How.XPATH , using = "//*[@id=\"product-form\"]/div[1]/div/button[1]/i")
 	private static WebElement btnSave ;
-	
-	
+
 
 	public ProductsPage() {
 
@@ -74,8 +83,14 @@ public class ProductsPage extends BasePage {
 		return btnsearchproducts;
 	}
 	
-	public static WebElement getBtnAddProduct() {
-		return btnAddProduct;
+	public static WebElement getradioButton() {
+		return radioButton;
+	}
+	public static WebElement getAvailableStartDateTimeUtc() {
+		return AvailableStartDateTimeUtc;
+	}
+	public static WebElement getAvailableEndDateTimeUtc() {
+		return AvailableEndDateTimeUtc;
 	}
 	
 	public static WebElement getTitlePage() {
@@ -88,7 +103,10 @@ public class ProductsPage extends BasePage {
 	public static WebElement getDropdownElement() {
 		return dropdownElement;
 	}
-	
+	public static WebElement getBtnAddProduct() {
+		return btnAddProduct;
+	}
+
 	public static WebElement getBtnSave() {
 		return btnSave;
 	}
