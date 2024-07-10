@@ -19,9 +19,19 @@ Feature: Je souhaire rechercher et ajouter un produit
   @ajoutProduit
   Scenario: Ajout d'un produit
     When Je clique sur le bouton Add new
-    And Je saisie le nom du produit "MacOl"
+    And Je saisie le nom du produit "MacOlf"
     And Je selectionne un bouton radio "Published"
     And je selectionne une date "30/06/2024 12:57"
     And je selectionne une date de fin  "07/07/2025 12:57"
+    And je saisie le prix 
     And je selectionne un tax categorie
     And Je clique sur le bouton Save
+
+
+    
+    @DeleteProduct
+    Scenario: Supprimer un produit
+    When je selectionne le produit "MacOl"
+    And  je clique sur le bouton Delete(Selected)
+    
+     

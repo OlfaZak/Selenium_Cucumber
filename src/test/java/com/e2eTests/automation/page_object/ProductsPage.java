@@ -1,6 +1,8 @@
 package com.e2eTests.automation.page_object;
 
 
+
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -52,7 +54,12 @@ public class ProductsPage extends BasePage {
 	
 	@FindBy(how = How.XPATH , using = "//*[@id=\"product-form\"]/div[1]/div/button[1]/i")
 	private static WebElement btnSave ;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\"AdditionalShippingCharge\"]")
+	private static WebElement  prixProduit;
 
+//	@FindBy(how = How.XPATH, using = "//*[@id=\"Price\"]")
+//	private static WebElement  prixProduit1;
 
 	public ProductsPage() {
 
@@ -93,8 +100,8 @@ public class ProductsPage extends BasePage {
 		return AvailableEndDateTimeUtc;
 	}
 	
-	public static WebElement getTitlePage() {
-		return text ;
+	public static WebElement getPrixProduit() {
+		return prixProduit ;
 	}
 	
 	public static WebElement getProductName() {
@@ -111,7 +118,8 @@ public class ProductsPage extends BasePage {
 		return btnSave;
 	}
 	
-	
-	
+	public static WebElement getTitlePage() {
+		return text ;
+	}
 	
 }

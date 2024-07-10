@@ -1,8 +1,8 @@
 package com.e2eTests.automation.step_definitions;
-
-
+import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 import com.e2eTests.automation.page_object.LoginPage;
 import com.e2eTests.automation.page_object.ProductsPage;
@@ -89,13 +89,11 @@ public class ProductStepDefinitions {
 		selectFromListUtils.selectDropDownListByIndex(ProductsPage.getDropdownCat(),3);
 	   
 	}
-
-
 	
 
 	@When("Je selectionne un bouton radio {string}")
 	public void jeSelectionneUnBoutonRadio(String radioButton) {
-//		seleniumUtils.click(ProductsPage.getradioButton());
+		//seleniumUtils.click(ProductsPage.getradioButton());
 		if (!ProductsPage.getradioButton().isSelected()) {
 			ProductsPage.getradioButton().click();
         }
@@ -118,7 +116,38 @@ public class ProductStepDefinitions {
 		ProductsPage.getAvailableEndDateTimeUtc().clear();
 		ProductsPage.getAvailableEndDateTimeUtc().sendKeys(AvailableEndDateTimeUtc);
 		ProductsPage.getAvailableEndDateTimeUtc().sendKeys(Keys.RETURN);
+		
 	}
+
+
+//	@And("je saisie le prix ")
+//	public void jSaisieLePrix() {
+//		ProductsPage.getPrixProduit().click();
+//	     ProductsPage.getPrixProduit().sendKeys(Keys.ARROW_UP);
+//	    
+//	     for(int i = 0; i < 4; i++) {
+//	    	 ProductsPage.getPrixProduit().sendKeys(Keys.ARROW_UP);
+//        }
+//	
+//
+//	}
+	
+	
+
+	@When("je saisie le prix")
+	public void jeSaisieLePrix() {
+		ProductsPage.getPrixProduit().click();
+	     ProductsPage.getPrixProduit().sendKeys(Keys.ARROW_UP);
+	    
+	     for(int i = 0; i < 4; i++) {
+	    	 ProductsPage.getPrixProduit().sendKeys(Keys.ARROW_UP);
+       }
+	
+	}
+
+
+
+
 
 
 
@@ -129,6 +158,22 @@ public class ProductStepDefinitions {
 		
 	    
 	}
+	
+	/*Delete Product*/
+		
+
+	@When("je selectionne le produit {string}")
+	public void jeSelectionneLeProduit(String productRows) {
+		
+		
+	    
+	}
+	
+	@When("je clique sur le bouton Delete\\(Selected)")
+	public void jeCliqueSurLeBoutonDeleteSelected() {
+	    
+	}
+
 
 
 
